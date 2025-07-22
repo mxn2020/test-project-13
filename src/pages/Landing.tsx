@@ -1,7 +1,7 @@
 // src/pages/Landing.tsx
 
 import React, { useState, useEffect } from 'react';
-import { Database, Zap, Code, Globe, Users, Star, User } from 'lucide-react';
+import { Heart, Stethoscope, Calendar, Users, Star, User, Shield, Activity, BookOpen, Video, Clock, Award } from 'lucide-react';
 import { Link } from 'react-router-dom';
 import { Container, Button, Card, CardContent, Badge, Header, Nav, Section, Span, H1, H2, P, Div, Footer } from '../lib/dev-container';
 import { useAuth } from '../components/auth/AuthProvider';
@@ -18,13 +18,13 @@ const getFeatureCardId = (index: number): ComponentRegistryId => {
   return ids[index] || 'noID';
 };
 
-const getTechLetterId = (index: number): ComponentRegistryId => {
-  const ids: ComponentRegistryId[] = ['tech-letter-0', 'tech-letter-1', 'tech-letter-2', 'tech-letter-3', 'tech-letter-4', 'tech-letter-5'];
+const getServiceLetterId = (index: number): ComponentRegistryId => {
+  const ids: ComponentRegistryId[] = ['service-letter-0', 'service-letter-1', 'service-letter-2', 'service-letter-3', 'service-letter-4', 'service-letter-5'];
   return ids[index] || 'noID';
 };
 
-const getTechBadgeId = (index: number): ComponentRegistryId => {
-  const ids: ComponentRegistryId[] = ['tech-badge-0', 'tech-badge-1', 'tech-badge-2', 'tech-badge-3', 'tech-badge-4', 'tech-badge-5'];
+const getServiceBadgeId = (index: number): ComponentRegistryId => {
+  const ids: ComponentRegistryId[] = ['service-badge-0', 'service-badge-1', 'service-badge-2', 'service-badge-3', 'service-badge-4', 'service-badge-5'];
   return ids[index] || 'noID';
 };
 
@@ -38,100 +38,100 @@ export const Landing: React.FC = () => {
 
   const features = [
     {
-      icon: <Zap className="w-8 h-8 text-yellow-500" />,
-      title: "Lightning Fast",
-      description: "Built with Vite for instant hot module replacement and blazing fast builds"
+      icon: <Calendar className="w-8 h-8 text-medical-primary" />,
+      title: "Smart Scheduling",
+      description: "Book appointments instantly with our AI-powered scheduling system that finds the perfect time for you"
     },
     {
-      icon: <Database className="w-8 h-8 text-green-500" />,
-      title: "MongoDB + Prisma",
-      description: "Type-safe database access with MongoDB flexibility and Prisma's developer experience"
+      icon: <Video className="w-8 h-8 text-medical-secondary" />,
+      title: "Telemedicine",
+      description: "Connect with healthcare providers from anywhere with secure video consultations and remote monitoring"
     },
     {
-      icon: <Code className="w-8 h-8 text-blue-500" />,
-      title: "TypeScript Ready",
-      description: "Full TypeScript support with strict type checking and IntelliSense"
+      icon: <Activity className="w-8 h-8 text-medical-accent" />,
+      title: "Health Tracking",
+      description: "Monitor your vital signs, medications, and health metrics with comprehensive tracking tools"
     },
     {
-      icon: <Globe className="w-8 h-8 text-purple-500" />,
-      title: "Deploy Anywhere",
-      description: "Ready for Netlify, Vercel, or any modern hosting platform"
+      icon: <BookOpen className="w-8 h-8 text-medical-success" />,
+      title: "Health Education",
+      description: "Access evidence-based health content, preventive care guides, and wellness programs"
     }
   ];
 
   const stats = [
-    { label: "Build Time", value: "< 2s" },
-    { label: "Bundle Size", value: "< 50KB" },
-    { label: "TypeScript", value: "100%" },
-    { label: "Performance", value: "A+" }
+    { label: "Patients Served", value: "50K+" },
+    { label: "Success Rate", value: "98%" },
+    { label: "Avg Response", value: "< 2min" },
+    { label: "Satisfaction", value: "4.9★" }
   ];
 
   return (
-    <Container componentId="landing-page-root"> {/* Changed to direct ID */}
+    <Container componentId="landing-page-root">
       <Div 
         devId="main-wrapper" 
         devName="Main Wrapper" 
-        devDescription="Main page wrapper with gradient background"
-        className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"
+        devDescription="Main page wrapper with medical gradient background"
+        className="min-h-screen bg-gradient-to-br from-medical-light via-white to-medical-light/30"
       >
       {/* Header */}
       <Header 
         devId="main-header" 
         devName="Main Header" 
-        devDescription="Primary site header with navigation"
+        devDescription="Primary medical platform header with navigation"
         className="container mx-auto px-4 py-6"
       >
         <Nav 
           devId="main-nav" 
           devName="Main Navigation" 
-          devDescription="Primary navigation bar"
+          devDescription="Primary navigation bar for medical platform"
           className="flex items-center justify-between"
         >
           <Div 
             devId="logo-section" 
             devName="Logo Section" 
-            devDescription="Company logo and brand name"
+            devDescription="Medical platform logo and brand name"
             className="flex items-center space-x-2"
           >
-            <Div devId="noID" className="w-8 h-8 bg-gradient-to-r from-purple-500 to-pink-500 rounded-lg flex items-center justify-center">
-              <Code className="w-5 h-5 text-white" />
+            <Div devId="noID" className="w-8 h-8 bg-gradient-to-r from-medical-primary to-medical-secondary rounded-lg flex items-center justify-center">
+              <Heart className="w-5 h-5 text-white" />
             </Div>
             <Span 
               devId="brand-name" 
               devName="Brand Name" 
-              devDescription="Geenius Template brand name"
-              className="text-xl font-bold text-white"
+              devDescription="Doctor Mike Health Platform brand name"
+              className="text-xl font-bold text-medical-dark"
             >
-              Geenius Template
+              Doctor Mike Health
             </Span>
           </Div>
           <Div 
             devId="nav-actions" 
             devName="Navigation Actions" 
-            devDescription="Navigation buttons and user menu"
+            devDescription="Navigation buttons and user menu for medical platform"
             className="flex items-center space-x-4"
           >
             <Button 
-              devId="docs-button" 
-              devName="Docs Button" 
-              devDescription="Link to documentation"
+              devId="health-resources-button" 
+              devName="Health Resources Button" 
+              devDescription="Link to health resources and education"
               variant="ghost" 
-              className="text-gray-300 hover:text-white transition-colors"
+              className="text-medical-dark hover:text-medical-primary transition-colors"
             >
-              Docs
+              Health Resources
             </Button>
             {isAuthenticated ? (
               <Div 
                 devId="user-section" 
                 devName="User Section" 
-                devDescription="Authenticated user welcome area"
+                devDescription="Authenticated patient welcome area"
                 className="flex items-center space-x-4"
               >
                 <Span 
                   devId="welcome-message" 
                   devName="Welcome Message" 
-                  devDescription="Welcome message for authenticated user"
-                  className="text-gray-300"
+                  devDescription="Welcome message for authenticated patient"
+                  className="text-medical-dark"
                 >
                   Welcome, {user?.name?.split(' ')[0]}!
                 </Span>
@@ -139,11 +139,11 @@ export const Landing: React.FC = () => {
                   <Button 
                     devId="nav-dashboard-button"
                     devName="Navigation Dashboard Button"
-                    devDescription="Dashboard button in navigation header for authenticated users"
-                    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                    devDescription="Patient dashboard button in navigation header"
+                    className="bg-medical-primary hover:bg-medical-primary/90 text-white px-4 py-2 rounded-lg transition-colors"
                   >
                     <User className="w-4 h-4 mr-2" />
-                    Dashboard
+                    My Health
                   </Button>
                 </Link>
               </Div>
@@ -151,16 +151,16 @@ export const Landing: React.FC = () => {
               <Div 
                 devId="auth-buttons" 
                 devName="Authentication Buttons" 
-                devDescription="Login and register buttons for unauthenticated users"
+                devDescription="Login and register buttons for new patients"
                 className="flex items-center space-x-2"
               >
                 <Link to="/login">
                   <Button 
                     devId="nav-login-button"
                     devName="Navigation Login Button"
-                    devDescription="Login button in navigation header"
+                    devDescription="Patient login button in navigation header"
                     variant="ghost" 
-                    className="text-gray-300 hover:text-white transition-colors"
+                    className="text-medical-dark hover:text-medical-primary transition-colors"
                   >
                     Login
                   </Button>
@@ -169,8 +169,8 @@ export const Landing: React.FC = () => {
                   <Button 
                     devId="nav-register-button"
                     devName="Navigation Register Button"
-                    devDescription="Get started button in navigation header"
-                    className="bg-purple-600 hover:bg-purple-700 text-white px-4 py-2 rounded-lg transition-colors"
+                    devDescription="Get started button for new patients"
+                    className="bg-medical-primary hover:bg-medical-primary/90 text-white px-4 py-2 rounded-lg transition-colors"
                   >
                     Get Started
                   </Button>
@@ -182,11 +182,11 @@ export const Landing: React.FC = () => {
       </Header>
 
       {/* Hero Section */}
-      <Container componentId="hero-section"> {/* Changed to direct ID */}
+      <Container componentId="hero-section">
         <Section 
           devId="hero-content" 
           devName="Hero Content" 
-          devDescription="Main hero Section with title and call-to-action"
+          devDescription="Main hero section with medical platform introduction"
           className="container mx-auto px-4 py-20 text-center"
         >
           <Div 
@@ -198,41 +198,41 @@ export const Landing: React.FC = () => {
             <H1 
               devId="hero-title" 
               devName="Hero Title" 
-              devDescription="Main hero title showcasing the tech stack"
-              className="text-5xl md:text-7xl font-bold text-white mb-6"
+              devDescription="Main hero title for Doctor Mike Health Platform"
+              className="text-5xl md:text-7xl font-bold text-medical-dark mb-6"
             >
-              Vite + React + 
+              Your Health, 
               <Span 
-                devId="mongodb-highlight" 
-                devName="MongoDB Highlight" 
-                devDescription="Highlighted MongoDB text in gradient"
-                className="bg-gradient-to-r from-purple-400 to-pink-400 bg-clip-text text-transparent"
+                devId="simplified-highlight" 
+                devName="Simplified Highlight" 
+                devDescription="Highlighted 'Simplified' text in medical gradient"
+                className="bg-gradient-to-r from-medical-primary to-medical-secondary bg-clip-text text-transparent"
               >
-                {' '}MongoDB
+                {' '}Simplified
               </Span>
             </H1>
             <P 
               devId="hero-description" 
               devName="Hero Description" 
-              devDescription="Hero Section description explaining the template benefits"
-              className="text-xl text-gray-300 mb-8 max-w-2xl mx-auto"
+              devDescription="Hero section description explaining the medical platform benefits"
+              className="text-xl text-medical-muted mb-8 max-w-2xl mx-auto"
             >
-              Modern full-stack template with lightning-fast development, type-safe database access, 
-              and production-ready deployment configuration.
+              Experience modern healthcare with evidence-based medicine, preventive care, 
+              and personalized treatment plans. Your health journey starts here.
             </P>
             <Div 
               devId="hero-cta-buttons" 
               devName="Hero CTA Buttons" 
-              devDescription="Call-to-action buttons in hero Section"
+              devDescription="Call-to-action buttons in hero section"
               className="flex flex-col sm:flex-row gap-4 justify-center"
             >
               {isAuthenticated ? (
                 <Link to="/dashboard">
                   <Button 
-                    devId="hero-start-building"
-                    devName="Start Building Button"
-                    devDescription="Primary call-to-action button for starting to build with the template"
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                    devId="hero-start-journey"
+                    devName="Start Health Journey Button"
+                    devDescription="Primary call-to-action button for starting health journey"
+                    className="bg-gradient-to-r from-medical-primary to-medical-secondary hover:from-medical-primary/90 hover:to-medical-secondary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
                   >
                     Go to Dashboard
                   </Button>
@@ -240,23 +240,23 @@ export const Landing: React.FC = () => {
               ) : (
                 <Link to="/register">
                   <Button 
-                    devId="hero-start-building"
-                    devName="Start Building Button"
-                    devDescription="Primary call-to-action button for starting to build with the template"
-                    className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                    devId="hero-start-journey"
+                    devName="Start Health Journey Button"
+                    devDescription="Primary call-to-action button for starting health journey"
+                    className="bg-gradient-to-r from-medical-primary to-medical-secondary hover:from-medical-primary/90 hover:to-medical-secondary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
                   >
-                    Start Building
+                    Start Your Health Journey
                   </Button>
                 </Link>
               )}
               <Button 
-                devId="hero-github-button"
-                devName="View on GitHub Button"
-                devDescription="Secondary button to view the project on GitHub"
+                devId="hero-learn-more-button"
+                devName="Learn More Button"
+                devDescription="Secondary button to learn more about the platform"
                 variant="outline"
-                className="border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
+                className="border border-medical-primary text-medical-primary hover:bg-medical-primary hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
               >
-                View on GitHub
+                Learn More
               </Button>
             </Div>
           </Div>
@@ -264,17 +264,17 @@ export const Landing: React.FC = () => {
       </Container>
 
       {/* Stats Section */}
-      <Container componentId="stats-section"> {/* Changed to direct ID */}
+      <Container componentId="stats-section">
         <Section 
           devId="stats-content" 
           devName="Stats Content" 
-          devDescription="Statistics Section showing performance metrics"
+          devDescription="Statistics section showing medical platform metrics"
           className="container mx-auto px-4 py-12"
         >
           <Div 
             devId="stats-grid" 
             devName="Stats Grid" 
-            devDescription="Grid container for statistics cards"
+            devDescription="Grid container for medical statistics cards"
             className="grid grid-cols-2 md:grid-cols-4 gap-6"
           >
             {stats.map((stat, index) => (
@@ -282,12 +282,12 @@ export const Landing: React.FC = () => {
                 key={index} 
                 devId={getStatCardId(index)}
                 devName={`${stat.label} Stat Card`}
-                devDescription={`Statistical card showing ${stat.label}: ${stat.value}`}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 text-center border border-white/10"
+                devDescription={`Medical statistical card showing ${stat.label}: ${stat.value}`}
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 text-center border border-medical-light shadow-lg"
               >
-                <CardContent devId="noID"  className="p-0">
-                  <Div devId="noID" className="text-2xl font-bold text-white mb-2">{stat.value}</Div>
-                  <Div devId="noID" className="text-gray-400">{stat.label}</Div>
+                <CardContent devId="noID" className="p-0">
+                  <Div devId="noID" className="text-2xl font-bold text-medical-primary mb-2">{stat.value}</Div>
+                  <Div devId="noID" className="text-medical-muted">{stat.label}</Div>
                 </CardContent>
               </Card>
             ))}
@@ -296,12 +296,12 @@ export const Landing: React.FC = () => {
       </Container>
 
       {/* Features Section */}
-      <Container componentId="features-section"> {/* Changed to direct ID */}
+      <Container componentId="features-section">
         <Section devId="noID" className="container mx-auto px-4 py-20">
           <Div devId="noID" className="text-center mb-16">
-            <H2 devId="noID" className="text-4xl font-bold text-white mb-4">Why Choose This Template?</H2>
-            <P devId="noID" className="text-gray-300 max-w-2xl mx-auto">
-              Everything you need to build modern web applications with the latest technologies
+            <H2 devId="noID" className="text-4xl font-bold text-medical-dark mb-4">Why Choose Our Platform?</H2>
+            <P devId="noID" className="text-medical-muted max-w-2xl mx-auto">
+              Modern healthcare technology designed to make your health management simple, effective, and accessible
             </P>
           </Div>
           <Div devId="noID" className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -311,12 +311,12 @@ export const Landing: React.FC = () => {
                 devId={getFeatureCardId(index)}
                 devName={`${feature.title} Feature Card`}
                 devDescription={`Feature card highlighting ${feature.title}: ${feature.description}`}
-                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:border-purple-500/50 transition-all"
+                className="bg-white/80 backdrop-blur-sm rounded-xl p-6 border border-medical-light hover:border-medical-primary/50 transition-all shadow-lg hover:shadow-xl"
               >
                 <CardContent devId="noID" className="p-0">
                   <Div devId="noID" className="mb-4">{feature.icon}</Div>
-                  <h3 className="text-xl font-semibold text-white mb-2">{feature.title}</h3>
-                  <P devId="noID" className="text-gray-400">{feature.description}</P>
+                  <h3 className="text-xl font-semibold text-medical-dark mb-2">{feature.title}</h3>
+                  <P devId="noID" className="text-medical-muted">{feature.description}</P>
                 </CardContent>
               </Card>
             ))}
@@ -324,35 +324,35 @@ export const Landing: React.FC = () => {
         </Section>
       </Container>
 
-      {/* Tech Stack Section */}
-      <Container componentId="tech-stack-section"> {/* Changed to direct ID */}
+      {/* Services Section */}
+      <Container componentId="services-section">
         <Section devId="noID" className="container mx-auto px-4 py-20">
           <Div devId="noID" className="text-center mb-16">
-            <H2 devId="noID" className="text-4xl font-bold text-white mb-4">Modern Tech Stack</H2>
-            <P devId="noID" className="text-gray-300 max-w-2xl mx-auto">
-              Built with the most popular and reliable technologies
+            <H2 devId="noID" className="text-4xl font-bold text-medical-dark mb-4">Comprehensive Healthcare Services</H2>
+            <P devId="noID" className="text-medical-muted max-w-2xl mx-auto">
+              From preventive care to specialized treatments, we provide evidence-based healthcare solutions
             </P>
           </Div>
           <Div devId="noID" className="grid grid-cols-2 md:grid-cols-6 gap-8">
             {[
-              { name: "Vite", color: "from-yellow-400 to-orange-500" },
-              { name: "React", color: "from-blue-400 to-cyan-400" },
-              { name: "TypeScript", color: "from-blue-500 to-blue-600" },
-              { name: "MongoDB", color: "from-green-400 to-green-500" },
-              { name: "Prisma", color: "from-purple-400 to-purple-500" },
-              { name: "Tailwind", color: "from-teal-400 to-teal-500" }
-            ].map((tech, index) => (
+              { name: "Primary Care", color: "from-medical-primary to-medical-primary/80" },
+              { name: "Cardiology", color: "from-red-500 to-red-600" },
+              { name: "Dermatology", color: "from-medical-secondary to-medical-secondary/80" },
+              { name: "Mental Health", color: "from-purple-500 to-purple-600" },
+              { name: "Pediatrics", color: "from-medical-accent to-medical-accent/80" },
+              { name: "Wellness", color: "from-medical-success to-medical-success/80" }
+            ].map((service, index) => (
               <Div key={index} devId="noID" className="text-center">
-                <Div devId={getTechLetterId(index)} className={`w-16 h-16 mx-auto mb-3 rounded-xl bg-gradient-to-br ${tech.color} flex items-center justify-center`}>
-                  <span className="text-white font-bold text-lg">{tech.name[0]}</span>
+                <Div devId={getServiceLetterId(index)} className={`w-16 h-16 mx-auto mb-3 rounded-xl bg-gradient-to-br ${service.color} flex items-center justify-center`}>
+                  <span className="text-white font-bold text-lg">{service.name[0]}</span>
                 </Div>
                 <Badge 
-                  devId={getTechBadgeId(index)}
-                  devName={`${tech.name} Technology Badge`}
-                  devDescription={`Technology badge for ${tech.name}`}
-                  className="text-gray-300 font-medium bg-transparent border-none"
+                  devId={getServiceBadgeId(index)}
+                  devName={`${service.name} Service Badge`}
+                  devDescription={`Service badge for ${service.name}`}
+                  className="text-medical-dark font-medium bg-transparent border-none"
                 >
-                  {tech.name}
+                  {service.name}
                 </Badge>
               </Div>
             ))}
@@ -360,36 +360,66 @@ export const Landing: React.FC = () => {
         </Section>
       </Container>
 
-      {/* CTA Section */}
-      <Container componentId="cta-section"> {/* Changed to direct ID */}
+      {/* Trust Section */}
+      <Container componentId="trust-section">
         <Section devId="noID" className="container mx-auto px-4 py-20">
-          <Div devId="noID" className="bg-gradient-to-r from-purple-600/20 to-pink-600/20 rounded-2xl p-12 text-center border border-purple-500/30">
-            <H2 devId="noID" className="text-4xl font-bold text-white mb-4">Ready to Build Something Amazing?</H2>
-            <P devId="noID" className="text-gray-300 mb-8 max-w-2xl mx-auto">
-              Get started with this template and build your next project with confidence
+          <Div devId="noID" className="bg-gradient-to-r from-medical-primary/10 to-medical-secondary/10 rounded-2xl p-12 text-center border border-medical-primary/20">
+            <Div devId="noID" className="flex justify-center mb-6">
+              <Shield className="w-16 h-16 text-medical-primary" />
+            </Div>
+            <H2 devId="noID" className="text-4xl font-bold text-medical-dark mb-4">Trusted Healthcare, Delivered</H2>
+            <P devId="noID" className="text-medical-muted mb-8 max-w-2xl mx-auto">
+              Board-certified physicians, evidence-based treatments, and HIPAA-compliant security. 
+              Your health and privacy are our top priorities.
+            </P>
+            <Div devId="noID" className="flex flex-wrap justify-center gap-6 mb-8">
+              <Div devId="noID" className="flex items-center gap-2">
+                <Award className="w-5 h-5 text-medical-success" />
+                <span className="text-medical-dark font-medium">Board Certified</span>
+              </Div>
+              <Div devId="noID" className="flex items-center gap-2">
+                <Shield className="w-5 h-5 text-medical-success" />
+                <span className="text-medical-dark font-medium">HIPAA Compliant</span>
+              </Div>
+              <Div devId="noID" className="flex items-center gap-2">
+                <Clock className="w-5 h-5 text-medical-success" />
+                <span className="text-medical-dark font-medium">24/7 Support</span>
+              </Div>
+            </Div>
+          </Div>
+        </Section>
+      </Container>
+
+      {/* CTA Section */}
+      <Container componentId="cta-section">
+        <Section devId="noID" className="container mx-auto px-4 py-20">
+          <Div devId="noID" className="bg-gradient-to-r from-medical-primary/20 to-medical-secondary/20 rounded-2xl p-12 text-center border border-medical-primary/30">
+            <H2 devId="noID" className="text-4xl font-bold text-medical-dark mb-4">Ready to Take Control of Your Health?</H2>
+            <P devId="noID" className="text-medical-muted mb-8 max-w-2xl mx-auto">
+              Join thousands of patients who trust us with their healthcare journey. Start with a free consultation today.
             </P>
             <Div devId="noID" className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button 
-                devId="cta-start-project"
-                devName="Start Project Button"
-                devDescription="Primary CTA button to start a new project"
-                className="bg-gradient-to-r from-purple-600 to-pink-600 hover:from-purple-700 hover:to-pink-700 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
+                devId="cta-book-consultation"
+                devName="Book Consultation Button"
+                devDescription="Primary CTA button to book a consultation"
+                className="bg-gradient-to-r from-medical-primary to-medical-secondary hover:from-medical-primary/90 hover:to-medical-secondary/90 text-white px-8 py-3 rounded-lg font-semibold transition-all transform hover:scale-105"
               >
                 <span className="flex items-center gap-2">
-                  <Star className="w-5 h-5" />
-                  Start Project
+                  <Stethoscope className="w-5 h-5" />
+                  Book Free Consultation
                 </span>
               </Button>
               <Button 
-                devId="cta-join-community"
-                devName="Join Community Button"
-                devDescription="Secondary CTA button to join the community"
+                devId="cta-explore-services"
+                devName="Explore Services Button"
+                devDescription="Secondary CTA button to explore services"
                 variant="outline"
-                className="border border-purple-500 text-purple-400 hover:bg-purple-500 hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
+                className="border border-medical-primary text-medical-primary hover:bg-medical-primary hover:text-white px-8 py-3 rounded-lg font-semibold transition-all"
               >
                 <span className="flex items-center gap-2">
-                  <Users className="w-5 h-5" />
-                  Join Community
+                  <Heart className="w-5 h-5" />
+                  Explore Services
                 </span>
               </Button>
             </Div>
@@ -401,17 +431,17 @@ export const Landing: React.FC = () => {
       <Footer 
         devId="main-footer" 
         devName="Main Footer" 
-        devDescription="Site footer with links and copyright"
-        className="container mx-auto px-4 py-8 border-t border-white/10"
+        devDescription="Medical platform footer with links and compliance information"
+        className="container mx-auto px-4 py-8 border-t border-medical-light"
       >
         <Div devId="noID" className="flex flex-col md:flex-row justify-between items-center">
-          <Div devId="noID" className="text-gray-400 mb-4 md:mb-0">
-            © 2024 Geenius Template. Built with ❤️ for developers.
+          <Div devId="noID" className="text-medical-muted mb-4 md:mb-0">
+            © 2024 Doctor Mike Health Platform. Committed to your wellness journey.
           </Div>
           <Div devId="noID" className="flex space-x-6">
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Documentation</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">GitHub</a>
-            <a href="#" className="text-gray-400 hover:text-white transition-colors">Support</a>
+            <a href="#" className="text-medical-muted hover:text-medical-primary transition-colors">Privacy Policy</a>
+            <a href="#" className="text-medical-muted hover:text-medical-primary transition-colors">Terms of Service</a>
+            <a href="#" className="text-medical-muted hover:text-medical-primary transition-colors">Contact</a>
           </Div>
         </Div>
       </Footer>
